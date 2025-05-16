@@ -1,0 +1,251 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Smaragdgrün als Primärfarbe */
+    --primary: 160 84% 39%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Gold als Akzentfarbe */
+    --secondary: 43 100% 50%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 160 84% 95%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 160 84% 39%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 160 84% 39%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 43 100% 50%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 160 84% 39%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: bold;
+  }
+}
+
+/* Moderne Designklassen */
+.gradient-bg-1 {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+}
+
+.gradient-bg-2 {
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+}
+
+.gradient-bg-gold {
+  background: linear-gradient(135deg, #fef9c3 0%, #fbbf24 100%);
+}
+
+.pattern-dots {
+  background-image: radial-gradient(#10b981 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.pattern-lines {
+  background-image: linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.shadow-card {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-subtle {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Optimized print styles for A4 PDF */
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Base page styles */
+  .page {
+    width: 210mm !important;
+    height: 297mm !important;
+    position: relative !important;
+    overflow: visible !important; /* Changed from hidden to visible */
+    page-break-after: always !important;
+    page-break-before: avoid !important;
+    break-after: page !important;
+    break-before: avoid !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 15mm 15mm !important; /* Standard margins */
+    box-sizing: border-box !important;
+    background-color: white !important;
+  }
+
+  /* First page doesn't need break-before */
+  .page:first-child {
+    page-break-before: auto !important;
+    break-before: auto !important;
+  }
+
+  /* Last page doesn't need break-after */
+  .page:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  /* Force page breaks */
+  .page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  /* Header styles */
+  .page-header {
+    height: 10mm !important; /* Reduced from 15mm */
+    margin-bottom: 8mm !important; /* Reduced from 10mm */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+  }
+
+  /* Content styles */
+  .page-content {
+    flex: 1 !important;
+    max-height: none !important; /* Removed fixed height constraint */
+    overflow: visible !important; /* Changed from hidden to visible */
+  }
+
+  /* Footer styles */
+  .page-footer {
+    height: 10mm !important; /* Reduced from 15mm */
+    margin-top: 8mm !important; /* Reduced from 10mm */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    position: relative !important;
+  }
+
+  /* Hide elements for print */
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Show elements for print */
+  .print\:block {
+    display: block !important;
+  }
+
+  /* Ensure images don't break */
+  img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Ensure backgrounds and colors print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Prevent headings from breaking */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* Specific page fixes */
+  #page-9,
+  #page-10,
+  #page-11,
+  #page-12 {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+}
