@@ -49,12 +49,6 @@ export default function PrintButton() {
           height: 0 !important;
           display: block !important;
         }
-        
-        /* Verbesserte Darstellung für das Logo auf dem Cover */
-        .cover-logo-container {
-          display: block !important;
-          print-color-adjust: exact !important;
-        }
       }
     `
     document.head.appendChild(style)
@@ -115,7 +109,7 @@ export default function PrintButton() {
         checkAllImagesLoaded()
       } else {
         img.onload = checkAllImagesLoaded
-        img.onerror = handleImageError // Count errors separately
+        img.onerror = handleImageError
       }
     })
   }

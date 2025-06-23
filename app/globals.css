@@ -93,7 +93,6 @@
 .gradient-bg-2 {
   background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
 }
-
 .gradient-bg-gold {
   background: linear-gradient(135deg, #fef9c3 0%, #fbbf24 100%);
 }
@@ -144,14 +143,14 @@
     width: 210mm !important;
     height: 297mm !important;
     position: relative !important;
-    overflow: visible !important; /* Changed from hidden to visible */
+    overflow: visible !important;
     page-break-after: always !important;
     page-break-before: avoid !important;
     break-after: page !important;
     break-before: avoid !important;
     display: flex !important;
     flex-direction: column !important;
-    padding: 15mm 15mm !important; /* Standard margins */
+    padding: 15mm 15mm !important;
     box-sizing: border-box !important;
     background-color: white !important;
   }
@@ -180,8 +179,8 @@
 
   /* Header styles */
   .page-header {
-    height: 10mm !important; /* Reduced from 15mm */
-    margin-bottom: 8mm !important; /* Reduced from 10mm */
+    height: 10mm !important;
+    margin-bottom: 8mm !important;
     display: flex !important;
     align-items: center !important;
     justify-content: flex-end !important;
@@ -190,14 +189,14 @@
   /* Content styles */
   .page-content {
     flex: 1 !important;
-    max-height: none !important; /* Removed fixed height constraint */
-    overflow: visible !important; /* Changed from hidden to visible */
+    max-height: none !important;
+    overflow: visible !important;
   }
 
   /* Footer styles */
   .page-footer {
-    height: 10mm !important; /* Reduced from 15mm */
-    margin-top: 8mm !important; /* Reduced from 10mm */
+    height: 10mm !important;
+    margin-top: 8mm !important;
     display: flex !important;
     align-items: center !important;
     justify-content: flex-end !important;
@@ -238,14 +237,5 @@
   h6 {
     page-break-after: avoid !important;
     break-after: avoid !important;
-  }
-
-  /* Specific page fixes */
-  #page-9,
-  #page-10,
-  #page-11,
-  #page-12 {
-    page-break-before: always !important;
-    break-before: page !important;
   }
 }

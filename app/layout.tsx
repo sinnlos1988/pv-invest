@@ -3,14 +3,12 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { ImagePreloader } from "@/components/image-preloader"
 
-// Verwenden einer einzelnen, einfachen Schriftart, die garantiert funktioniert
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "PV-Invest für Unternehmer",
-  description: "Wie Sie Steuern in Substanz und Cashflow verwandeln – mit Struktur statt Zufall",
+  title: "Gold & Silber richtig investieren - Der kompakte Guide",
+  description: "So schützt du dein Vermögen mit Edelmetallen – alles, was du über Gold, Silber & Co wissen musst",
     generator: 'v0.dev'
 }
 
@@ -28,7 +26,6 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <ImagePreloader />
           {children}
         </ThemeProvider>
       </body>
